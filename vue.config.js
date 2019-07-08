@@ -15,7 +15,7 @@ module.exports = {
       title: "index page",
 
       // 包含的模块，可选项
-      chunks: ["index"]
+      // chunks: ["index"]
     },
     // 只有entry属性时，直接用字符串表示模块入口
     test: "src/pages/test/main.js"

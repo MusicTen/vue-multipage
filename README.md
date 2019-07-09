@@ -1,4 +1,4 @@
-# multipage-vue
+# vue-multipage
 
 ## 项目目录
 

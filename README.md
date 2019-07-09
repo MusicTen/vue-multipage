@@ -55,3 +55,77 @@ module.exports = {
 - 如果是后台管理系统页面，不对外开放的系统，采用单页面应用，这样可以利用第三方框架（Vue、React等）对系统进行组件化，如果系统过大，导致首屏加载缓慢，可以将系统拆分成单页面形式的多页面应用；一般来说登录页面作为后台管理系统的首屏页面。
 
 暂时使用到的多页需求是产品的迭代，新老版本共存。所以在项目里开辟另一页面开发新版，共用相关组件
+
+
+
+## .prettierrc文件常见配置
+
+```javascript
+{
+    "tabWidth": 2, // tab缩进大小,默认为2
+    "useTabs": false, // 使用tab缩进，默认false
+    "semi": false, // 使用分号, 默认true
+    "singleQuote": true, // 使用单引号, 默认false(在jsx中配置无效, 默认都是双引号)
+    "printWidth": 120, // 一行的字符数，如果超过会进行换行，默认为80
+        
+    // 行尾逗号,默认none,可选 none|es5|all
+    // es5 包括es5中的数组、对象
+    // all 包括函数对象等所有可选
+    "TrailingCooma": "all",
+        
+    // 对象中的空格 默认true
+    // true: { foo: bar }
+    // false: {foo: bar}
+    "bracketSpacing": true,
+        
+    // JSX标签闭合位置 默认false
+    // false: <div
+    //          className=""
+    //          style={{}}
+    //       >
+    // true: <div
+    //          className=""
+    //          style={{}} >
+    "jsxBracketSameLine": false,
+        
+    // 箭头函数参数括号 默认avoid 可选 avoid| always
+    // avoid 能省略括号的时候就省略 例如x => x
+    // always 总是有括号
+    "arrowParens": "avoid"
+}
+```
+
+> Prettier 是一个支持多种文件格式（包括javascript、css、less、sass、typescript、markdown等）的样式格式化工具。让前端更加专注业务。
+
+### prettierrc 配置文件支持三种格式 
+
+- JSON： 
+
+  ```json
+  {
+      "printWidth": 100,
+      "parser": "flow"
+  }
+  ```
+
+- JS： 
+
+  ```javascript
+  module.exports = {
+      printWidth: 100,
+      parser: "flow"
+  }
+  ```
+
+- YAML： 
+
+  ```yaml
+  {
+      "printWidth": 100,
+      "parser": "flow"
+  }
+  ```
+
+### 与 ESLint 的差异
+
+这是最常见的问题之一，简明的回答是 ESLint 只是一个代码质量工具 (确保没有未使用的变量、没有全局变量，等等)。而 Prettier 只关心格式化文件 (最大长度、混合标签和空格、引用样式等)。你可以将 ESLint 和 Prettier 结合起来使用，以获得双赢的组合。

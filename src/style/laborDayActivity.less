@@ -1,0 +1,310 @@
+.laborDayActivity {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url('~@/assets/img/51Day/bg_laborDayActivity.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-top: 4vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  .laborDayActivityTitle {
+    width: 6.95rem;
+    height: 1.06rem;
+    background-image: url('~@/assets/img/51Day/bg_laborDayTitle.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto 4vh;
+  }
+  .list {
+    width: 6.57rem;
+    height: 3.01rem;
+    margin: 0.1rem auto 0;
+    position: relative;
+    background: url('~@/assets/img/51Day/bg_banner3.png') no-repeat top center;
+    background-size: 100%;
+    .explain {
+      width: 0.49rem;
+      height: 0.49rem;
+      position: absolute;
+      bottom: 0.25rem;
+      left: 0.12rem;
+    }
+    .tips {
+      width: 2rem;
+      height: 0.6rem;
+      line-height: 0.6rem;
+      position: absolute;
+      top: 1.36rem;
+      left: 0.73rem;
+      p {
+        color: #fff !important;
+        font-size: 0.2rem;
+      }
+    }
+    .time {
+      color: #d96518;
+      font-size: 0.2rem;
+      font-weight: bold;
+      position: absolute;
+      bottom: 0.27rem;
+      left: 1.03rem;
+      line-height: 0.29rem;
+    }
+    .time:nth-of-type(2) {
+      left: 3.25rem;
+    }
+    &::after {
+      content: '';
+      width: 0.66rem;
+      height: 0.68rem;
+      position: absolute;
+      top: 1.3rem;
+      right: 0.3rem;
+      background: url('~@/assets/img/51Day/arrow3.png') no-repeat top center;
+      background-size: 100%;
+    }
+  }
+  .list:nth-of-type(1) {
+    background-image: url('~@/assets/img/51Day/bg_banner1.png');
+    &::after {
+      background: url('~@/assets/img/51Day/arrow1.png');
+      background-size: 100%;
+    }
+    .tips {
+      p {
+        line-height: 0.3rem;
+      }
+    }
+    p {
+      color: #008e8f;
+      line-height: 0.29rem;
+      bottom: 0.26rem;
+    }
+  }
+  .list:nth-of-type(2) {
+    background-image: url('~@/assets/img/51Day/bg_banner2.png');
+    &::after {
+      background-image: url('~@/assets/img/51Day/arrow2.png');
+    }
+    p {
+      color: #934fcf;
+      line-height: 0.29rem;
+      bottom: 0.28rem;
+    }
+    .tips {
+      p {
+        line-height: 0.6rem;
+      }
+    }
+  }
+  .isSginedUp {
+    &::before {
+      content: '';
+      width: 1rem;
+      height: 1rem;
+      background: url('~@/assets/img/51Day/bg_ybm.png') no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      top: 0.35rem;
+      left: 0;
+    }
+  }
+  .signUp {
+    width: 6.57rem;
+    margin: 0.42rem auto 0;
+    position: relative;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    .time {
+      width: 100%;
+      position: absolute;
+      top: 2.7rem;
+      left: 0;
+      p {
+        color: #008e8f;
+        font-size: 0.2rem;
+        font-weight: bold;
+        position: absolute;
+        bottom: 0.31rem;
+        left: 1.03rem;
+      }
+      p:nth-of-type(2) {
+        left: 3.25rem;
+      }
+    }
+    .tips {
+      width: 2rem;
+      height: 0.6rem;
+      line-height: 0.3rem;
+      position: absolute;
+      top: 1.04rem;
+      left: 0.73rem;
+      p {
+        color: #fff !important;
+        font-size: 0.2rem;
+      }
+    }
+    .explain {
+      width: 0.49rem;
+      height: 0.49rem;
+      position: absolute;
+      top: 1.95rem;
+      left: 0.12rem;
+    }
+    &::before {
+      content: '';
+      width: 6.57rem;
+      height: 3.01rem;
+      background: url('~@/assets/img/51Day/bg_banner1.png') no-repeat top center;
+      background-size: 100%;
+      position: absolute;
+      top: -0.32rem;
+      left: 0;
+    }
+    .main {
+      width: 6.34rem;
+      height: 7.85rem;
+      padding: 1.6rem 0.3rem 0;
+      box-sizing: border-box;
+      border: 0.05rem solid #309193;
+      background-color: rgba(228, 215, 204, 0.7);
+      border-radius: 0.3rem;
+      margin: 0 auto;
+
+      .bmTxt {
+        width: 5.55rem;
+        height: 0.92rem;
+        margin: 0 auto;
+        color: #ffffff;
+        font-size: 0.34rem;
+        font-weight: bold;
+        background: url('~@/assets/img/51Day/bg_bmTxt.png') no-repeat top center;
+        background-size: 100%;
+        line-height: 0.92rem;
+        padding: 0 0.35rem;
+        box-sizing: border-box;
+      }
+      .bmTxt:nth-of-type(1) {
+        margin-top: 0.32rem;
+      }
+      .bmTxt:nth-of-type(2) {
+        margin-top: 0.25rem;
+      }
+      .bmTxt:nth-of-type(3) {
+        margin-top: 0.39rem;
+      }
+      .selectIcon {
+        width: 0.46rem;
+        height: 0.488rem;
+        background: url('~@/assets/img/51Day/bg_selectIcon.png') no-repeat top center;
+        background-size: 100%;
+        position: absolute;
+        top: 0.15rem;
+        right: 0.3rem;
+      }
+
+      .selectBmType {
+        // background: white;
+        width: 2.9rem;
+        height: 1.22rem;
+        float: right;
+        position: relative;
+        div:nth-of-type(1) {
+          background: white;
+          color: #008787;
+          width: 2.9rem;
+          height: 0.61rem;
+          border-radius: 0.8rem;
+          margin-top: 0.1rem;
+          line-height: 0.61rem;
+          padding: 0 0.28rem;
+          box-sizing: border-box;
+        }
+        div:nth-of-type(2) {
+          display: none;
+          background: white;
+          color: #008787;
+          width: 2.9rem;
+          height: 0.61rem;
+          border-radius: 0.8rem;
+          line-height: 0.61rem;
+          padding: 0 0.28rem;
+          box-sizing: border-box;
+          margin-top: 0.02rem;
+        }
+        .showOption {
+          display: inherit !important;
+        }
+      }
+      div:nth-of-type(4) {
+        width: 4.13rem;
+        height: 1.32rem;
+        margin: 0 auto;
+        margin-top: 0.8rem;
+        background: url('~@/assets/img/51Day/bg_bmBtn.png') no-repeat top center;
+        background-size: 100%;
+        .videoIcon {
+          width: 0.59rem;
+          height: 0.59rem;
+          float: left;
+          margin: 0.35rem 0 0 1.12rem;
+          background: url('~@/assets/img/51Day/videoIcon.png') no-repeat top center;
+          background-size: 100%;
+        }
+        .bmWordIcon {
+          width: 1.22rem;
+          height: 0.62rem;
+          float: left;
+          margin: 0.32rem 0 0 0.03rem;
+          background: url('~@/assets/img/51Day/bmWordIcon.png') no-repeat top center;
+          background-size: 100%;
+        }
+        .center {
+          margin: 0.32rem 0 0 1.5rem;
+        }
+      }
+    }
+  }
+  .second {
+    &::before {
+      background: url('~@/assets/img/51Day/bg_banner2.png') no-repeat top center;
+      background-size: 100%;
+    }
+    .tips {
+      line-height: 0.6rem;
+    }
+    .time {
+      top: 2.71rem;
+      p {
+        color: #934fcf;
+      }
+    }
+    .main {
+      border-color: #bd79e4;
+      .bmTxt {
+        background: url('~@/assets/img/51Day/bg_ConfrontationTxt.png') no-repeat top center;
+        background-size: 100%;
+      }
+      .selectBmType {
+        div:nth-of-type(1) {
+          color: #9e51d6;
+        }
+        div:nth-of-type(2) {
+          color: #9e51d6;
+        }
+      }
+    }
+  }
+  .third {
+    &::before {
+      background: url('~@/assets/img/51Day/bg_banner3.png') no-repeat top center;
+      background-size: 100%;
+    }
+    .main {
+      border-color: #d98622;
+    }
+  }
+}

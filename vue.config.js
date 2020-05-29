@@ -1,26 +1,93 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// 打包分析工具，可选用
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+// sentry 接入，可选用
+// const SentryPlugin = require('@tencent/webpack-sentry-plugin');
+
+const glob = require('glob')
+
+// 统一配置多页
+const pages = {}
+glob.sync('./src/pages/**/main.js').forEach(filePath => {
+  let chunk = filePath.split('./src/pages/')[1].split('/main.js')[0]
+  pages[chunk] = {
+    entry: filePath,
+    template: `public/${chunk}.html`,
+    chunks: ['chunk-vendors', 'chunk-common', chunk]
+  }
+})
 module.exports = {
-  pages: {
-    index: {
-      // 应用入口配置，相当于单页面应用的main.js，必需项
-      entry: 'src/pages/index/main.js',
-
-      // 应用的模版，相当于单页面应用的public/index.html，可选项，省略时默认与模块名一致
-      template: 'public/index.html',
-
-      // 编译后在dist目录的输出文件名，可选项，省略时默认与模块名一致
-      filename: 'index.html',
-
-      // 标题，可选项，一般情况不使用，通常是在路由切换时设置title
-      // 需要注意的是使用title属性template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-      title: 'index page'
-
-      // 包含的模块，可选项
-      // chunks: ["index"]
-    },
-    // 只有entry属性时，直接用字符串表示模块入口
-    test: 'src/pages/test/main.js'
+  publicPath: './',
+  pages,
+  lintOnSave: true,
+  outputDir: './dist',
+  productionSourceMap: !(process.env.NODE_ENV === 'production'),
+  devServer: {
+    port: 83,
+    proxy: {
+      '/openplatform': {
+        target: 'http://127.0.0.1:80',
+        ws: true,
+        changeOrigin: true
+      }
+    } // 配置开发环境 URL 便于本地开发调试
   },
-  // map文件的作用：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。
-  // 有了map就可以像未加密的代码一样，准确的输出是哪一行哪一列有错。
-  productionSourceMap: false
+  chainWebpack: config => {
+    // 由于兼容问题需禁用 preload / prefech 插件
+    // config.plugins.delete('named-chunks')
+    // config.plugins.delete('preload-index')
+    // config.plugins.delete('preload-test')
+    config.externals({
+      // 'element-ui': 'ELEMENT'
+    })
+  },
+  configureWebpack: config => {
+    const plugins = [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_console: true
+          }
+        },
+        sourceMap: true
+      })
+    ]
+    // splitChunk 配置
+    const splitChunksConfig = {
+      cacheGroups: {
+        vendors: {
+          name: 'chunk-vendors',
+          test: /[\\\/]node_modules[\\\/]/,
+          priority: -10,
+          chunks: 'initial'
+        },
+        common: {
+          name: 'chunk-common',
+          minChunks: 2,
+          priority: -20,
+          chunks: 'initial',
+          reuseExistingChunk: true
+        },
+        'bootstrap-vue': {
+          name: 'bootstrap-vue',
+          test: /bootstrap-vue/,
+          chunks: 'initial',
+          enforce: true,
+          priority: 10
+        },
+        'element-ui': {
+          name: 'element-ui',
+          test: /element-ui/,
+          chunks: 'initial',
+          enforce: true,
+          priority: 10
+        }
+      }
+    }
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins = [...config.plugins, ...plugins]
+      config.optimization.splitChunks = splitChunksConfig
+    }
+  }
 }

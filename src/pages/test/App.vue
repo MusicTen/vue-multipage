@@ -7,6 +7,14 @@
     <router-view />
   </div>
 </template>
+<script>
+export default {
+  name: 'about',
+  mounted() {
+    // console.log(ElementUI)
+  }
+}
+</script>
 
 <style lang="less">
 #app {

@@ -1,0 +1,95 @@
+{"frames": {
+
+"banzhuanbg_00000.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00001.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00002.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00003.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00004.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00005.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00006.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00007.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00008.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+},
+"banzhuanbg_00009.png":
+{
+	"frame": {"x":1,"y":1,"w":750,"h":690},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":750,"h":690},
+	"sourceSize": {"w":750,"h":690}
+}},
+"animations": {
+	"banzhuanbg": ["banzhuanbg_00000.png","banzhuanbg_00001.png","banzhuanbg_00002.png","banzhuanbg_00003.png","banzhuanbg_00004.png","banzhuanbg_00005.png","banzhuanbg_00006.png","banzhuanbg_00007.png","banzhuanbg_00008.png","banzhuanbg_00009.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "banzhuanbg.png",
+	"format": "RGBA8888",
+	"size": {"w":752,"h":692},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b35fafd8c4345e47c4f1cfb8718ae748:b12720a5de6374a8e030b0be9bb03e63:5c73684fca69377b3f784f683b29fdc9$"
+}
+}

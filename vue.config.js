@@ -20,8 +20,8 @@ glob.sync('./src/pages/**/main.js').forEach(filePath => {
 module.exports = {
   publicPath: './',
   pages,
-  lintOnSave: true,
-  outputDir: './dist',
+  lintOnSave: false, // console
+  outputDir: IS_PRODUCTION ? './dist' : './pre',
   productionSourceMap: !IS_PRODUCTION,
   devServer: {
     port: 83,

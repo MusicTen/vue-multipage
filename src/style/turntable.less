@@ -1,0 +1,510 @@
+.turntable {
+  width: 100%;
+  height: 100vh;
+  background: #BD225E url('~@/assets/img/turntable/bg-0.png') no-repeat center top;
+  background-size: 100%;
+  padding-top: 6vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.wheel-wrapper {
+  width: 7.5rem;
+  height: 7.4rem;
+  margin: 9vh auto 0;
+  position: relative;
+  background: url('~@/assets/img/turntable/bg_basemap.png') no-repeat;
+  background-size: 100%;
+  z-index: 1;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  .title {
+    width: 7.5rem;
+    height: 2.4rem;
+    background: url('~@/assets/img/turntable/title.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: -1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+    font-size: .36rem;
+    // font-family:PingFang SC;
+    font-weight: bold;
+    color:rgba(255,255,83,1);
+    padding: .94rem 61% 0 0;
+    text-align: right;
+    text-shadow: 0px .02rem .03rem rgba(142,0,52,0.43);
+    box-sizing: border-box;
+    &::before,
+    &::after {
+      content: '';
+      width: .2rem;
+      height: 3.88rem;
+      background: url('~@/assets/img/turntable/rope.png') no-repeat;
+      background-size: 100%;
+      position: absolute;
+      bottom: 1.4rem;
+      z-index: 10;
+      // display: none;
+    }
+    &::before {
+      left: 2rem;
+    }
+    &::after {
+      right: 2rem;
+    }
+  }
+  &::before,
+  &::after {
+    content: '';
+    width: 7.6rem;
+    height: 7.6rem;
+    background: url('~@/assets/img/turntable/light5.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    // display: none;
+  }
+  &::before {
+    animation: switch1 1s linear infinite;
+  }
+  &::after {
+    background-image: url('~@/assets/img/turntable/light6.png');
+    animation: switch2 1s linear infinite;
+  }
+  @keyframes switch1 {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes switch2 {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .wheel-pointer {
+    width: 1.57rem;
+    height: 1.86rem;
+    background: url('~@/assets/img/turntable/bg_start3.png') no-repeat center top;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 50%;
+    top: 2.25rem;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+  .wheel-pointer-bg {
+    top: 2.31rem;
+    background-image: url('~@/assets/img/turntable/bg_start4.png');
+  }
+  .wheel-bg {
+    width: 5.66rem;
+    height: 5.66rem;
+    background: url('~@/assets/img/turntable/bg_wheel.png') no-repeat center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: .4rem;
+    left: 50%;
+    // margin-top: -2.77rem;
+    margin-left: -2.83rem;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 1.2s ease-in-out;
+  }
+}
+.prize-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  .prize-item-wrapper {
+    width: 2.83rem;
+    height: 2.83rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    .prize-item {
+      width: 100%;
+      height: 100%;
+      transform-origin: bottom;
+      padding-top: .3rem;
+      box-sizing: border-box;
+      position: relative;
+      .prize-icon {
+        img {
+          width: 1.08rem;
+          height: 1.08rem;
+        // filter: brightness(40%); 
+        }
+        .jelly {
+          animation: jelly .2s;
+        }
+        @keyframes jelly {
+          0% {
+            transform: scale(1)
+          }
+          30% {
+            transform: scale(1.05)
+          }
+          60% {
+            transform: scale(1)
+          }
+          75% {
+            transform: scale(1.03)
+          }
+          90% {
+            transform: scale(1)
+          }
+          95% {
+            transform: scale(1.01)
+          }
+          100% {
+            transform: scale(1)
+          }
+        }
+      }
+      .prize-name {
+        position: relative;
+        margin-top: -.36rem;
+        line-height: .31rem;
+        img {
+          height: .31rem;
+        }
+        span {
+          text-align: right;
+          position: absolute;
+          top: -.15rem;
+          right: .9rem;
+          font-size: .28rem;
+          color: rgb(145, 3, 221);
+          font-weight: 800;
+          -webkit-text-stroke: .02rem #fff;
+          text-stroke:.02rem #fff;
+        }
+      }
+      .mark {
+        width: .71rem;
+        height: .62rem;
+        line-height: .66rem;
+        text-align: center;
+        font-size: .3rem;
+        color: #fff;
+        font-weight: 800;
+        -webkit-text-stroke: .02rem #F21647;
+        text-stroke: .02rem #F21647;
+        position: absolute;
+        top: .25rem;
+        right: .5rem;
+        background: url('~@/assets/img/turntable/bg_mark.png') no-repeat center;
+        background-size: 100% 100%;
+      }
+      .narrow {
+        animation: narrow .13s;
+      }
+      @keyframes narrow {
+        0% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.25);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .winning {
+    .prize-item::before {
+      content: '';
+      width: 2.3rem;
+      height: 2.41rem;
+      background: url('~@/assets/img/turntable/light8.png') no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      top: -.12rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      animation: spark 0.3s linear;
+    }
+    @keyframes spark {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(1);
+      }
+      33% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(1.8);
+      }
+    }
+    .prize-item::after {
+      content: '';
+      width: 2.3rem;
+      height: 2.41rem;
+      background: url('~@/assets/img/turntable/light7.png') no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      top: -.12rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  }
+  .checked {
+    .prize-item::after {
+      content: '';
+      width: 2.3rem;
+      height: 2.41rem;
+      background: url('~@/assets/img/turntable/light7.png') no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      top: -.12rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  }
+  .lizi {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    background-size: 100% 100%;
+    animation: lizi1 0.7s linear;
+  }
+  @keyframes lizi1 {
+    0% {
+      background-image: url('~@/assets/img/turntable/lizi/1.png');
+    }
+    20% {
+      background-image: url('~@/assets/img/turntable/lizi/2.png');
+    }
+    40% {
+      background-image: url('~@/assets/img/turntable/lizi/3.png');
+    }
+    60% {
+      background-image: url('~@/assets/img/turntable/lizi/4.png');
+    }
+    80% {
+      background-image: url('~@/assets/img/turntable/lizi/5.png');
+    }
+    100% {
+      background-image: url('~@/assets/img/turntable/lizi/6.png');
+    }
+  }
+}
+.section {
+  width: 7.5rem;
+  height: 7.2rem;
+  margin: 0 auto;
+  position: relative;
+  &::before {
+    content: '';
+    width: 7.5rem;
+    height: 7.2rem;
+    background: url('~@/assets/img/turntable/bg_pannel.png') no-repeat center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: -1.5rem;
+    z-index: 0;
+  }
+}
+.tips {
+  max-width: 4.4rem;
+  // min-width: 4rem;
+  height: .59rem;
+  line-height: .59rem;
+  border-radius: .29rem;
+  margin: 1vh auto;
+  background:rgba(8,8,8,0.21);
+  font-size: .28rem;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 .5rem 0 .8rem;
+  box-sizing: border-box;
+  position: relative;
+  &::before {
+    content: '';
+    width: .82rem;
+    height: .68rem;
+    position: absolute;
+    top: -.04rem;
+    left: .15rem;
+    background: url('~@/assets/img/turntable/lottery.png') no-repeat center;
+    background-size: 100% 100%;
+  }
+  span {
+    color: #F14568;
+    font-size: .38rem;
+    font-weight: bold;
+    -webkit-text-stroke: .02rem #fff;
+    text-stroke: .02rem #fff;
+    padding: 0 .04rem;
+  }
+  img {
+    width: .52rem;
+    height: .52rem;
+    position: absolute;
+    top: .03rem;
+    right: .03rem;
+  }
+}
+.btn {
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  position: relative;
+  li {
+    width: 4.33rem;
+    height: 1.45rem;
+    margin: 0 auto;
+    &:first-child {
+      background: url('~@/assets/img/turntable/text1.png') no-repeat center .34rem, url('~@/assets/img/turntable/btn_yellow.png') no-repeat;
+      background-size: 2.25rem .63rem, 100%;
+    }
+    &:last-child {
+      background: url('~@/assets/img/turntable/text9.png') no-repeat center .2rem, url('~@/assets/img/turntable/btn_blue2.png') no-repeat;
+      background-size: 1.7rem .94rem, 100%;
+    }
+  }
+  li.ad {
+    background: url('~@/assets/img/turntable/text3.png') no-repeat center .34rem, url('~@/assets/img/turntable/btn_yellow.png') no-repeat;
+    background-size: 2.91rem .63rem, 100%;
+  }
+  li.disabled1 {
+    background: url('~@/assets/img/turntable/text10.png') no-repeat center .2rem, url('~@/assets/img/turntable/btn_gray2.png') no-repeat;
+    background-size: 1.7rem .94rem, 100%;
+    // filter: grayscale(100%);
+    // filter:#A2A2A2;
+  }
+  li.disabled2 {
+    background: url('~@/assets/img/turntable/text6.png') no-repeat center .34rem, url('~@/assets/img/turntable/btn_gray2.png') no-repeat;
+    background-size: 2.25rem .63rem, 100%;
+  }
+  .hand {
+    position: relative;
+    &::after {
+      content: '';
+      width: 1.05rem;
+      height: .91rem;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      // background: url('~@/assets/img/turntable/hand.png') no-repeat center;
+      background-size: 100% 100%;
+      animation: guide 2s ease-in-out;
+    }
+    @keyframes guide {
+      0% {
+        background-image: url('~@/assets/img/turntable/hand.png');
+        transform: translate(.1rem, .1rem);
+      }
+      25% {
+        background-image: url('~@/assets/img/turntable/hand.png');
+        transform: translate(-.1rem, -.1rem);
+      }
+      50% {
+        background-image: url('~@/assets/img/turntable/hand.png');
+        transform: translate(.1rem, .1rem);
+      }
+      75% {
+        background-image: url('~@/assets/img/turntable/hand.png');
+        transform: translate(-.1rem, -.1rem);
+      }
+      100% {
+        background-image: url('~@/assets/img/turntable/hand.png');
+        transform: translate(0rem, 0);
+      }
+    }
+  }
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 111;
+  background-color: rgba(0, 0, 0, .7);
+  .pop {
+    width: 6.7rem;
+    height: 4.77rem;
+    padding: .9rem .4rem 0;
+    background: url('~@/assets/img/turntable/bg_pop.png') no-repeat center center;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    img {
+      width: 4.98rem;
+      height: .39rem;
+      margin-bottom: .1rem;
+    }
+    p {
+      font-size: .3rem;
+      font-weight: 500;
+      color: #B30D33;
+    }
+    ul {
+      display: flex;
+      justify-content: space-around;
+      margin-top: .4rem;
+      li {
+        width: 2.8rem;
+        height: 1.11rem;
+        background: url('~@/assets/img/turntable/text7.png') no-repeat center .2rem, url('~@/assets/img/turntable/btn_blue.png') no-repeat center center;
+        background-size: .88rem .48rem, 100% 100%;
+      }
+      li:last-child {
+        background: url('~@/assets/img/turntable/text8.png') no-repeat center .2rem, url('~@/assets/img/turntable/btn_pink.png') no-repeat center center;
+        background-size: 1.74rem .48rem, 100% 100%;
+      }
+    }
+  }
+}

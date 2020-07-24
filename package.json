@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode=production",
+    "pre": "vue-cli-service build --mode=development",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -34,6 +35,9 @@
     "root": true,
     "env": {
       "node": true
+    },
+    "globals": {
+      "PIXI": true
     },
     "extends": [
       "plugin:vue/essential",

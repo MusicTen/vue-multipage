@@ -84,18 +84,18 @@ export default {
       isStart: 1,
       score: 10, //消耗积分
       list: [
-        { img: require('../../assets/img/wheel/1.png'), text: '少量猪币' },
-        { img: require('../../assets/img/wheel/6.png'), text: '大量灵气' },
-        { img: require('../../assets/img/wheel/2.png'), text: '中量猪币' },
-        { img: require('../../assets/img/wheel/7.png'), text: '猪肉脯*1' },
-        { img: require('../../assets/img/wheel/3.png'), text: '大量猪币' },
-        { img: require('../../assets/img/wheel/10.png'), text: '谢谢参与' },
-        { img: require('../../assets/img/wheel/8.png'), text: '现金红包' },
-        { img: require('../../assets/img/wheel/4.png'), text: '少量灵气' },
-        { img: require('../../assets/img/wheel/9.png'), text: '碎片*1' },
-        { img: require('../../assets/img/wheel/5.png'), text: '大量灵气' },
-        { img: require('../../assets/img/wheel/9.png'), text: '碎片*1' },
-        { img: require('../../assets/img/wheel/8.png'), text: '现金红包' }
+        { img: require('@/assets/img/wheel/1.png'), text: '少量猪币' },
+        { img: require('@/assets/img/wheel/6.png'), text: '大量灵气' },
+        { img: require('@/assets/img/wheel/2.png'), text: '中量猪币' },
+        { img: require('@/assets/img/wheel/7.png'), text: '猪肉脯*1' },
+        { img: require('@/assets/img/wheel/3.png'), text: '大量猪币' },
+        { img: require('@/assets/img/wheel/10.png'), text: '谢谢参与' },
+        { img: require('@/assets/img/wheel/8.png'), text: '现金红包' },
+        { img: require('@/assets/img/wheel/4.png'), text: '少量灵气' },
+        { img: require('@/assets/img/wheel/9.png'), text: '碎片*1' },
+        { img: require('@/assets/img/wheel/5.png'), text: '大量灵气' },
+        { img: require('@/assets/img/wheel/9.png'), text: '碎片*1' },
+        { img: require('@/assets/img/wheel/8.png'), text: '现金红包' }
       ], //奖品1-9
       index: -1, // 当前转动到哪个位置，起点位置
       count: 12, // 总共有多少个位置
@@ -188,6 +188,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../style/reset.css';
-@import '../../style/wheel.less';
+@import '~@/style/reset.css';
+@import '~@/style/wheel.less';
 </style>

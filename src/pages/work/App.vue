@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="worksite">
-      <img class="back" v-if="0" src="../../assets/img/work/back.png" alt />
+      <img class="back" v-if="0" src="@/assets/img/work/back.png" alt />
       <div class="countDown" v-if="0">
         <p>{{ busyOrFree }}</p>
         <p>{{ countdown }}</p>
       </div>
       <div class="work" ref="refbox"></div>
       <div class="loading">
-        <img src="../../assets/img/work/pig.png" alt /><br />
+        <img src="@/assets/img/work/pig.png" alt /><br />
         正在生成场景...
       </div>
       <div class="panel">
@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="pop" v-if="isShowPop">
-      <img src="../../assets/img/work/bg_light.png" class="bg" alt />
+      <img src="@/assets/img/work/bg_light.png" class="bg" alt />
       <div class="packet">
         <h3>获得猪币红包</h3>
         <p>
@@ -64,14 +64,14 @@
         </p>
         <div @click="go">继续打工赚钱</div>
       </div>
-      <img src="../../assets/img/work/btn_close.png" @click="close" class="close" alt />
+      <img src="@/assets/img/work/btn_close.png" @click="close" class="close" alt />
     </div>
   </div>
 </template>
 
 <script>
 import { getFormatFortune } from '@/utils/util.js'
-import * as PIXI from 'pixi.js-legacy'
+// import * as PIXI from 'pixi.js-legacy'
 let Application = PIXI.Application,
   Sprite = PIXI.Sprite,
   Graphics = PIXI.Graphics
@@ -84,11 +84,11 @@ export default {
       level: 0,
       totalCoin: 0,
       workicon: [
-        require('../../assets/img/work/task1.png'),
-        require('../../assets/img/work/task2.png'),
-        require('../../assets/img/work/task3.png'),
-        require('../../assets/img/work/task4.png'),
-        require('../../assets/img/work/task5.png')
+        require('@/assets/img/work/task1.png'),
+        require('@/assets/img/work/task2.png'),
+        require('@/assets/img/work/task3.png'),
+        require('@/assets/img/work/task4.png'),
+        require('@/assets/img/work/task5.png')
       ],
       workList: [
         {
@@ -338,6 +338,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../style/reset.css';
-@import '../../style/work.less';
+@import '~@/style/reset.css';
+@import '~@/style/work.less';
 </style>

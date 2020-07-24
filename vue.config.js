@@ -1,4 +1,4 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 // 打包分析工具，可选用
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -6,7 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 // const SentryPlugin = require('@tencent/webpack-sentry-plugin');
 
 const glob = require('glob')
-
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 // 统一配置多页
 const pages = {}
 glob.sync('./src/pages/**/main.js').forEach(filePath => {
@@ -22,7 +22,7 @@ module.exports = {
   pages,
   lintOnSave: true,
   outputDir: './dist',
-  productionSourceMap: !(process.env.NODE_ENV === 'production'),
+  productionSourceMap: !IS_PRODUCTION,
   devServer: {
     port: 83,
     proxy: {
@@ -40,19 +40,24 @@ module.exports = {
     // config.plugins.delete('preload-test')
     config.externals({
       // 'element-ui': 'ELEMENT'
+      'pixi.js-legacy': 'PIXI'
+    })
+    config.plugin('html-test').tap(args => {
+      args[0].MODE = IS_PRODUCTION ? '正式服' : '测试服'
+      return args
     })
   },
   configureWebpack: config => {
-    const plugins = [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          compress: {
-            drop_console: true
-          }
-        },
-        sourceMap: true
-      })
-    ]
+    // const plugins = [
+    //   new UglifyJsPlugin({
+    //     uglifyOptions: {
+    //       compress: {
+    //         drop_console: true
+    //       }
+    //     },
+    //     sourceMap: true
+    //   })
+    // ]
     // splitChunk 配置
     const splitChunksConfig = {
       cacheGroups: {
@@ -82,12 +87,56 @@ module.exports = {
           chunks: 'initial',
           enforce: true,
           priority: 10
+        },
+        'lottie-web': {
+          name: 'lottie-web',
+          test: /lottie-web/,
+          chunks: 'initial',
+          enforce: true,
+          priority: 10
         }
       }
     }
-    if (process.env.NODE_ENV === 'production') {
-      config.plugins = [...config.plugins, ...plugins]
-      config.optimization.splitChunks = splitChunksConfig
+    if (IS_PRODUCTION) {
+      // config.plugins = [...config.plugins, ...plugins]
+      // config.optimization.splitChunks = splitChunksConfig
+    }
+    if (IS_PRODUCTION) {
+      config.optimization = {
+        minimizer: [
+          compiler => {
+            const TerserPlugin = require('terser-webpack-plugin')
+            new TerserPlugin({
+              parallel: 4, // 并行打包
+              sourceMap: !IS_PRODUCTION,
+              terserOptions: {
+                ecma: undefined,
+                warnings: false,
+                parse: {},
+                compress: {
+                  drop_debugger: !IS_PRODUCTION,
+                  drop_console: !IS_PRODUCTION
+                },
+                mangle: true, // Note `mangle.properties` is `false` by default.
+                module: false,
+                output: null,
+                toplevel: false,
+                nameCache: null,
+                ie8: false,
+                keep_classnames: undefined,
+                keep_fnames: false,
+                safari10: false
+              }
+            }).apply(compiler)
+          }
+        ],
+        // 分割、提供公共代码
+        splitChunks: {
+          cacheGroups: splitChunksConfig.cacheGroups
+        }
+      }
+      config.output.filename = 'js/[name].[contenthash:8].js' // contenthash hash chunkhash
+      config.output.chunkFilename = 'js/[name].[contenthash:8].js'
     }
   }
 }

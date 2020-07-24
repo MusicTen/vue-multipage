@@ -1,13 +1,13 @@
 <template>
   <div class="moneyTree">
-    <img class="reward" src="../../assets/img/tree/reward.png" @click="getRewardList" alt />
+    <img class="reward" src="@/assets/img/tree/reward.png" @click="getRewardList" alt />
     <p class="countDown">
       下轮免费倒计时：<span>{{ remainingTime }}</span>
     </p>
     <div class="tree" @click="feel" ref="refbox"></div>
     <ul class="btns">
       <li>
-        <img src="../../assets/img/tree/btn_blue5.png" @click="invite" alt />
+        <img src="@/assets/img/tree/btn_blue5.png" @click="invite" alt />
         <div class="tips" v-if="current_invite_num >= need_invite_num">免费次数:{{ invite_times }}次</div>
         <div class="tips" v-else>
           邀请好友 <span>{{ current_invite_num }}</span> / {{ need_invite_num }}
@@ -22,12 +22,12 @@
     <!-- <div class="ad"></div> -->
     <div class="popRecord" v-if="isShowRecord">
       <div class="main list">
-        <img class="close" src="../../assets/img/tree/close.png" @click="close(1)" alt />
+        <img class="close" src="@/assets/img/tree/close.png" @click="close(1)" alt />
         <h3>中奖记录</h3>
         <ul v-if="rewardList.length !== 0">
           <li v-for="(v, i) in rewardList" :key="i">
-            <img v-if="v.reward_type === 1" src="../../assets/img/tree/cat_coin1.png" alt />
-            <img v-else src="../../assets/img/tree/cat_fish.png" alt />
+            <img v-if="v.reward_type === 1" src="@/assets/img/tree/cat_coin1.png" alt />
+            <img v-else src="@/assets/img/tree/cat_fish.png" alt />
             <div>
               <h4>{{ v.reward_type === 1 ? '喵币' : '小鱼干' }}奖励</h4>
               <p>
@@ -38,24 +38,24 @@
           </li>
         </ul>
         <div v-else class="nodata">
-          <img src="../../assets/img/tree/nodata.png" alt />
+          <img src="@/assets/img/tree/nodata.png" alt />
           您还没有任何中奖记录~
         </div>
       </div>
     </div>
     <div class="popReward" v-if="isShowReward">
       <div class="main light">
-        <img src="../../assets/img/tree/close.png" class="close" @click="close(2)" alt />
-        <img src="../../assets/img/tree/title.png" class="title" alt />
-        <img src="../../assets/img/tree/light1.png" :class="['bg', { rotate: isRotate }]" alt />
-        <img src="../../assets/img/tree/light2.png" class="bg1" alt />
+        <img src="@/assets/img/tree/close.png" class="close" @click="close(2)" alt />
+        <img src="@/assets/img/tree/title.png" class="title" alt />
+        <img src="@/assets/img/tree/light1.png" :class="['bg', { rotate: isRotate }]" alt />
+        <img src="@/assets/img/tree/light2.png" class="bg1" alt />
         <h3>{{ reward_type === 3 ? '什么都没有摇到' : '恭喜你获得' }}</h3>
         <p v-if="reward_type !== 3">
           +{{ reward_type === 1 ? reward_value : reward_value | Format }}{{ reward_type === 1 ? '喵币' : '小鱼干' }}
         </p>
-        <img v-if="reward_type === 1" src="../../assets/img/tree/cat_coin2.png" class="coinOrFish" alt />
-        <img v-else-if="reward_type === 2" src="../../assets/img/tree/cat_fish1.png" class="coinOrFish" alt />
-        <img v-else src="../../assets/img/tree/cat.png" class="coinOrFish" alt />
+        <img v-if="reward_type === 1" src="@/assets/img/tree/cat_coin2.png" class="coinOrFish" alt />
+        <img v-else-if="reward_type === 2" src="@/assets/img/tree/cat_fish1.png" class="coinOrFish" alt />
+        <img v-else src="@/assets/img/tree/cat.png" class="coinOrFish" alt />
         <button @click="playAgain">{{ reward_type === 3 ? '再接再厉' : '继续游戏' }}</button>
       </div>
     </div>
@@ -65,9 +65,9 @@
 <script>
 import { getFormatFortune } from '@/utils/util.js'
 import lottie from 'lottie-web'
-const shakePng = require('../../assets/img/tree/btn_yellow5.png')
-// const bg_ad = require('../../assets/img/tree/bg_ad.png')
-const shakeGif = require('../../assets/img/tree/shake.gif')
+const shakePng = require('@/assets/img/tree/btn_yellow5.png')
+// const bg_ad = require('@/assets/img/tree/bg_ad.png')
+const shakeGif = require('@/assets/img/tree/shake.gif')
 const animateJsonPath = './json/lottie-web/tree/data.json'
 export default {
   data() {

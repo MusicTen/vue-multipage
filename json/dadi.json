@@ -1,0 +1,42 @@
+{"frames": {
+
+"dadi_00000.png":
+{
+	"frame": {"x":0,"y":0,"w":45,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":48},
+	"sourceSize": {"w":45,"h":48},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"dadi_00001.png":
+{
+	"frame": {"x":45,"y":0,"w":45,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":48},
+	"sourceSize": {"w":45,"h":48},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"dadi_00002.png":
+{
+	"frame": {"x":90,"y":0,"w":45,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":48},
+	"sourceSize": {"w":45,"h":48},
+	"anchor": {"x":0.5,"y":0.5}
+}},
+"animations": {
+	"dadi": ["dadi_00000.png","dadi_00001.png","dadi_00002.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "dadi.png",
+	"format": "RGBA8888",
+	"size": {"w":135,"h":48},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:09f1537319dd6a9f699c0d118c71e13c:ddb2dd20ff64494d67e9ce6a71a6ab83:06d4a6f33ef3b4f10f79f0a7109bc291$"
+}
+}
